@@ -1,0 +1,3 @@
+console.log('userId:'+userId);
+console.log('userPassword:'+userPassword);
+console.log('userName:'+userName);
