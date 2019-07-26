@@ -1,0 +1,4 @@
+﻿*seq:1
+!id:하이루
+password:QERTWERQWERWERQW412@!
+!name:방가
