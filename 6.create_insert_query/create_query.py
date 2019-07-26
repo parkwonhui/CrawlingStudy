@@ -24,18 +24,16 @@ def optionValueInsert(line):
 		options.append(3)
 		line = line[1:]
 	else :
-		options.append(0)
+		options.append(0)		
 		
 	return line
 	
 
 while True:
 	line = f.readline()
-	line.rstrip('\n')
 	if not line: break
 	line = optionValueInsert(line)
-	
-	print(line)
+
 	value = line.split(':')
 	columns.append(value[0])
 	values.append(value[1])
@@ -45,18 +43,29 @@ f.close()
 # 파일 쓰기
 w = open('result.txt', 'w', encoding='UTF8')
 size = len(columns)
-for i in range(len(options)):
+for i in range(QUERY_COUNT):
 	query = "insert into "+TABLE_NAME+"(";
 	for j in columns:
 		query += j
 		query += ','
 	
+	query = query[0:-1]
 	query += ") values("
 	
+	index = 0
 	for j in values:
 		k = j.rstrip('\n')
-		query += k
+		if options[index] == 1 :
+			query += str(i)
+		elif options[index] == 3 :
+			k = '"' + k.replace('"', '') + str(i) + '"'
+			query += k
+		else :
+			query += k
+		
 		query += ','.rstrip('\n')
+		index += 1
+
 	
 	query = query[0:-1]
 	
