@@ -1,11 +1,6 @@
-import smtplib, os, pickle
-from email import encoders
+import smtplib, os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from email.mime.base import MIMEBase
-from email import encoders
-import base64
-import time
 
 id = ''
 password = ''
